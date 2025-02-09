@@ -1,0 +1,9 @@
+{
+  "name": "monorepo",
+  "version": "1.0.0",
+  "description": "monorepo practice",
+  "main": "index.ts",
+  "repository": "https://github.com/let-s-make-friends/monorepo",
+  "author": "Team 나현욱",
+  "license": "MIT"
+}

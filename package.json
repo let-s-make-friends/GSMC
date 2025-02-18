@@ -10,5 +10,9 @@
     "axios": "^1.7.9",
     "react-router-dom": "^7.1.5",
     "styled-components": "^6.1.15"
-  }
+  },
+  "workspaces": [
+    "client",
+    "admin"
+  ]
 }

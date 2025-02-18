@@ -9,5 +9,5 @@
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx"
   },
-  "include": ["app/**/*", "packages/**/*"]
+  "include": ["app/**/*", "packages/**/*", "node_modules/**/*"]
 }

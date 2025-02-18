@@ -1,8 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://cdn.jsdelivr.net/gh/orioncactus/Pretendard/dist/web/static/pretendard.css');
-
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -22,13 +20,12 @@ const GlobalStyle = createGlobalStyle`
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
-    font-family: 'Pretendard', sans-serif; /* 폰트 적용 */
   }
 
   body {
     line-height: 1;
     background: linear-gradient(297deg, #FFF -41.65%, #003CFF 170.2%);
-    font-family: 'Pretendard', sans-serif; /* body에도 적용 */
+    font-family: 'Pretendard', sans-serif; 
   }
 
   ol, ul {

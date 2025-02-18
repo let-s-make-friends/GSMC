@@ -22,11 +22,13 @@ const GlobalStyle = createGlobalStyle`
     vertical-align: baseline;
     color: white
   }
-
+  * {
+    box-sizing: border-box;}
   body {
-    line-height: 1;
-    background: linear-gradient(297deg, #FFF -41.65%, #003CFF 170.2%);
-    font-family: 'Pretendard', sans-serif; 
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(297deg, #FFF -41.65%, #003CFF 170.2%);
+  font-family: 'Pretendard', sans-serif; 
   }
 
   ol, ul {

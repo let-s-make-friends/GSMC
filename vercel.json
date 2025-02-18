@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "app/admin/package.json",
+      "use": "@vercel/static-build"
+    },
+    {
+      "src": "app/client/package.json",
+      "use": "@vercel/static-build"
+    }
+  ]
+}

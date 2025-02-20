@@ -5,6 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   width: 30%;
   padding: 1.5rem;
+  gap: 0.5rem;
 `;
 
 export const DropdownContainer = styled.select`

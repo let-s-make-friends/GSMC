@@ -1,5 +1,6 @@
 import Dropdown from "../../components/dropdown/dropdown";
 import Header from "../../components/header/header";
+import ImgButton from "../../components/imgButton/imgButton";
 import Textarea from "../../components/textarea/textarea";
 import WriteInput from "../../components/writeInput/writeInput";
 import { Container, Title } from "./styles";
@@ -16,6 +17,7 @@ const Write = () => {
       />
       <WriteInput label="주제" />
       <Textarea label="내용" />
+      <ImgButton />
     </Container>
   );
 };

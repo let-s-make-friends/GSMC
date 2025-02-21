@@ -6,8 +6,8 @@ export const Input = styled.input`
   border-radius: 12px;
   border: 1px solid #696a6c;
   font-family: Inter;
-  font-size: 16px;
   font-style: normal;
+  font-size: 16px;
   font-weight: 600;
   line-height: 22px;
 `;

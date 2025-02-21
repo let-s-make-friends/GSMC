@@ -24,6 +24,6 @@ export const Wrapper = styled.div`
 export const EmailWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 12px;
   align-items: flex-end;
+  gap: 12px;
 `;

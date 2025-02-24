@@ -1,3 +1,4 @@
+import DatePicker from "../../components/datePicker/datePicker";
 import Dropdown from "../../components/dropdown/dropdown";
 import Header from "../../components/header/header";
 import ImgButton from "../../components/imgButton/imgButton";
@@ -15,6 +16,7 @@ const Write = () => {
         label="카테고리 2"
         options={["교내 수상", "교외 수상", "교내 참가", "교외 참가", "동아리"]}
       />
+      <DatePicker label="날짜" />
       <WriteInput label="주제" />
       <Textarea label="내용" />
       <ImgButton />

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { Container, DropdownContainer } from "./styles";
 
 interface DatePickerProps {
   label: string;
@@ -16,37 +17,49 @@ const DatePicker = ({ label }: DatePickerProps) => {
   const days = Array.from({ length: daysInMonth }, (_, i) => i + 1);
 
   return (
-    <div>
+    <Container>
       <label>{label}</label>
       <div style={{ display: "flex", gap: "8px" }}>
-        <select value={year} onChange={(e) => setYear(Number(e.target.value))}>
+        <DropdownContainer
+          value={year}
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+            setYear(Number(e.target.value))
+          }
+        >
           {years.map((y) => (
             <option key={y} value={y}>
               {y}년
             </option>
           ))}
-        </select>
+        </DropdownContainer>
 
-        <select
+        <DropdownContainer
           value={month}
-          onChange={(e) => setMonth(Number(e.target.value))}
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+            setMonth(Number(e.target.value))
+          }
         >
           {months.map((m) => (
             <option key={m} value={m}>
               {m}월
             </option>
           ))}
-        </select>
+        </DropdownContainer>
 
-        <select value={day} onChange={(e) => setDay(Number(e.target.value))}>
+        <DropdownContainer
+          value={day}
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+            setDay(Number(e.target.value))
+          }
+        >
           {days.map((d) => (
             <option key={d} value={d}>
               {d}일
             </option>
           ))}
-        </select>
+        </DropdownContainer>
       </div>
-    </div>
+    </Container>
   );
 };
 

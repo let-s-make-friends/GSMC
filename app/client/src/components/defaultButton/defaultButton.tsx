@@ -1,16 +1,14 @@
 import * as S from "./styles";
-import { useNavigate } from "react-router-dom";
 
 interface DefaultButtonProps {
   label: string,
-  location: string,
-  active: boolean
+  active: boolean,
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-const DefaultButton = ({ label, location, active }: DefaultButtonProps) => {
-  const N = useNavigate();
+const DefaultButton = ({ label, active, onClick }: DefaultButtonProps) => {
   return (
-    <S.Button onClick={() => N("/" + location)} $isActive={active} >
+    <S.Button onClick={onClick} $isActive={active} >
       <S.Label $isActive={active}>{label}</S.Label>
     </S.Button >
   );

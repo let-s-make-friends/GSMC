@@ -5,7 +5,7 @@ type APIMethod = "GET" | "POST" | "PUT" | "DELETE";
 interface Options {
   method: APIMethod;
   headers: Record<string, string>;
-  body?: string;
+  body?: unknown;
   signal?: AbortSignal;
 }
 

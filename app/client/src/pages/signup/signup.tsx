@@ -15,7 +15,7 @@ const Signup = () => {
   const emailRegEx = /^s\d{5}@gsm\.hs\.kr$/;
 
   // 영문, 숫자, 특수문자를 포함하여 8글자 이상으로 적어주세요.
-  const passwordRegEx = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+]).{8,}$/;
+  const passwordRegEx = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$/;
 
   const submitSignUp = () => {
     API("/api/v1/auth/sign-up", {
@@ -60,12 +60,12 @@ const Signup = () => {
       <Header />
       <S.Wrapper>
         <S.EmailWrapper>
-          <Input label="이메일" type="email" onChange={(e) => { handleEmail(e) }} />
+          <Input label="이메일" placeholder="@gsm.hs.kr" type="email" onChange={(e) => { handleEmail(e) }} />
           <DefaultButton label="인증번호" active={false} />
         </S.EmailWrapper>
-        <Input label="인증번호" />
-        <Input label="새 비밀번호" type="password" onChange={(e) => { handlePassword(e) }} />
-        <Input label="새 비밀번호 재입력" type="password" onChange={(e) => { handlePasswordCheck(e) }} />
+        <Input label="인증번호" placeholder="인증번호 입력란" />
+        <Input label="새 비밀번호" placeholder="영문, 숫자 포함 8글자 이상으로 구성" type="password" onChange={(e) => { handlePassword(e) }} />
+        <Input label="새 비밀번호 재입력" placeholder="재입력란" type="password" onChange={(e) => { handlePasswordCheck(e) }} />
         <DefaultButton label="회원가입" active={signupActive} onClick={submitSignUp} />
       </S.Wrapper>
     </S.Container>

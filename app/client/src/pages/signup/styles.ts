@@ -4,26 +4,26 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
   height: 100vh;
-  gap: 2rem;
+  gap: 1rem;
 `;
 
 export const Wrapper = styled.div`
-  width: 100%;
-  max-width: 400px;
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 48px;
-  gap: 48px;
-  border-radius: 12px;
+  justify-content: center;
+
+  padding: 3rem;
+  gap: 3rem;
+
+  border-radius: 0.75rem;
   border: 1px solid var(--New-group-gray-100, #eff0f2);
   background: #fefefe;
 `;
 
 export const EmailWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: flex-end;
-  gap: 12px;
+  gap: 0.75rem;
 `;

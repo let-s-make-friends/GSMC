@@ -16,6 +16,11 @@ interface ApiResponse<T> {
   error?: string;
 }
 
+interface apiError {
+  message: string;
+  status: number;
+}
+
 export async function API<T>(
   endpoint: string,
   options: Options
@@ -33,10 +38,11 @@ export async function API<T>(
       success: true,
       data: res.data,
     };
-  } catch (error: any) {
+  } catch (error) {
+    const err = error as apiError;
     return {
       success: false,
-      error: error?.response?.data?.message || error.message || "Unknown error",
+      error: err?.message || "알 수 없는 오류",
     };
   }
 }

@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Button = styled.button<{ $isActive: boolean }>`
   padding: 0.8125rem 1rem;
+  cursor: pointer;
   border-radius: 0.75rem;
   border: none;
   background-color: ${({ $isActive }) => ($isActive ? "#003CFF" : "#012CBA")};

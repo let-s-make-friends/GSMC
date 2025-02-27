@@ -2,10 +2,10 @@ import axios from "axios";
 
 type APIMethod = "GET" | "POST" | "PUT" | "DELETE";
 
-interface Options {
+interface Options<T> {
   method: APIMethod;
-  headers: Record<string, string>;
-  body?: string;
+  headers?: Record<string, string>;
+  body?: T;
   signal?: AbortSignal;
 }
 
@@ -18,7 +18,7 @@ interface ApiResponse<T> {
 
 export async function API<T>(
   endpoint: string,
-  options: Options
+  options: Options<T>
 ): Promise<ApiResponse<T>> {
   try {
     const res = await axios(import.meta.env.VITE_API_URI + endpoint, {

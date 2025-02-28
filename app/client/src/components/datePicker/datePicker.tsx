@@ -3,6 +3,8 @@ import { Container, DropdownContainer } from "./styles";
 
 interface DatePickerProps {
   label: string;
+  onChange?: (date: string) => void;
+  initialDate?: string;
 }
 
 const DatePicker = ({ label }: DatePickerProps) => {

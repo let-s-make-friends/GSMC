@@ -26,11 +26,12 @@ export async function API<T>(
   options: Options<T>
 ): Promise<ApiResponse<T>> {
   try {
-    const res = await axios(import.meta.env.VITE_API_URI + endpoint, {
-      ...options,
+    const res = await axios(import.meta.env.VITE_API_URL + endpoint, {
+      method: options.method,
       headers: {
         ...options.headers,
       },
+      data: options.body,
       signal: options.signal,
     });
 

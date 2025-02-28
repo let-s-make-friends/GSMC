@@ -29,9 +29,11 @@ const Signup = () => {
   // 영문, 숫자, 특수문자를 포함하여 8글자 이상으로 적어주세요.
   const passwordRegEx = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$/;
 
-  const submitSignUp = () => {
-    if (signupActive == false) { return; }
-    API<Auth>("/api/v1/auth/sign-up", {
+  const submitSignUp = async () => {
+    if (signupActive == false) {
+      return;
+    }
+    const res = await API<Auth>("/api/v1/auth/sign-up", {
       method: "POST",
       body: {
         email: email,
@@ -39,26 +41,32 @@ const Signup = () => {
         authCode: authCode,
       },
     });
-  }
+  };
 
-  const getAuthCode = () => {
-    if (authCodeActive == false) { return; }
+  const getAuthCode = async () => {
+    if (authCodeActive == false) return;
     console.log(email);
-    API<CertificateCode>("/api/v1/auth/send-mail", {
+    const res = await API<CertificateCode>("/api/v1/auth/send-mail", {
       method: "POST",
       body: {
         email: email,
       },
-    })
-  }
+    });
+  };
 
   const handleSignup = () => {
-    if (!email || !password || !emailRegEx.test(email) || !passwordRegEx.test(password) || password !== passwordCheck) {
+    if (
+      !email ||
+      !password ||
+      !emailRegEx.test(email) ||
+      !passwordRegEx.test(password) ||
+      password !== passwordCheck
+    ) {
       setSignupActive(false);
     } else {
       setSignupActive(true);
     }
-  }
+  };
 
   const handleAuthCode = () => {
     if (!email || !emailRegEx.test(email)) {
@@ -66,25 +74,48 @@ const Signup = () => {
     } else {
       setAuthCodeActive(true);
     }
-  }
+  };
 
   useEffect(() => {
     handleSignup();
     handleAuthCode();
-  }, [email, password, passwordCheck])
+  }, [email, password, passwordCheck]);
 
   return (
     <S.Container>
       <Header />
       <S.Wrapper>
         <S.EmailWrapper>
-          <Input label="이메일" placeholder="@gsm.hs.kr" type="email" onChange={(e) => setEmail(e.target.value)} />
-          <DefaultButton label="인증번호" active={authCodeActive} onClick={getAuthCode} />
+          <Input
+            label="이메일"
+            placeholder="@gsm.hs.kr"
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <DefaultButton
+            label="인증번호"
+            active={authCodeActive}
+            onClick={getAuthCode}
+          />
         </S.EmailWrapper>
         <Input label="인증번호" placeholder="인증번호 입력란" />
-        <Input label="새 비밀번호" placeholder="영문, 숫자 포함 8글자 이상으로 구성" type="password" onChange={(e) => setPassword(e.target.value)} />
-        <Input label="새 비밀번호 재입력" placeholder="재입력란" type="password" onChange={(e) => setPasswordCheck(e.target.value)} />
-        <DefaultButton label="회원가입" active={signupActive} onClick={submitSignUp} />
+        <Input
+          label="새 비밀번호"
+          placeholder="영문, 숫자 포함 8글자 이상으로 구성"
+          type="password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <Input
+          label="새 비밀번호 재입력"
+          placeholder="재입력란"
+          type="password"
+          onChange={(e) => setPasswordCheck(e.target.value)}
+        />
+        <DefaultButton
+          label="회원가입"
+          active={signupActive}
+          onClick={submitSignUp}
+        />
       </S.Wrapper>
     </S.Container>
   );

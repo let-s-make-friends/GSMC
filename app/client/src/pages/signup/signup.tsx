@@ -1,9 +1,9 @@
 import * as S from "./styles";
 
-import { API } from "../../types/api";
 import { useState, useEffect } from "react";
-import { Auth, CertificateCode } from "../../types/auth";
 import { DefaultButton, Header, Input } from "../../components";
+import { getAuthCode, submitSignUp } from "../../apis/auth";
+import { useNavigate } from "react-router-dom";
 
 // sxxxxx@gsm.hs.kr
 const emailRegEx = /^s\d{5}@gsm\.hs\.kr$/;
@@ -19,31 +19,6 @@ const Signup = () => {
   const [signupActive, setSignupActive] = useState(false);
   const [authCodeActive, setAuthCodeActive] = useState(false);
 
-  const submitSignUp = async () => {
-    if (signupActive == false) return;
-    const res = await API<Auth>("/api/v1/auth/sign-up", {
-      method: "POST",
-      body: {
-        email: email,
-        password: password,
-        authCode: authCode,
-      },
-    });
-    res.success;
-  };
-
-  const getAuthCode = async () => {
-    if (authCodeActive == false) return;
-    console.log(email);
-    const res = await API<CertificateCode>("/api/v1/auth/send-mail", {
-      method: "POST",
-      body: {
-        email: email,
-      },
-    });
-    res.success;
-  };
-
   useEffect(() => {
     setSignupActive(
       !(
@@ -56,7 +31,7 @@ const Signup = () => {
     );
     setAuthCodeActive(!(!email || !emailRegEx.test(email)));
   }, [email, password, passwordCheck]);
-
+  const go = useNavigate();
   return (
     <S.Container>
       <Header />
@@ -71,7 +46,10 @@ const Signup = () => {
           <DefaultButton
             label="인증번호"
             active={authCodeActive}
-            onClick={getAuthCode}
+            onClick={async () => {
+              const res = await getAuthCode(email);
+              res.success ? setEmail(email) : setEmail("");
+            }}
           />
         </S.EmailWrapper>
         <Input
@@ -94,7 +72,10 @@ const Signup = () => {
         <DefaultButton
           label="회원가입"
           active={signupActive}
-          onClick={submitSignUp}
+          onClick={async () => {
+            const res = await submitSignUp(email, password, authCode);
+            res.success ? go("/login") : setEmail("");
+          }}
         />
       </S.Wrapper>
     </S.Container>

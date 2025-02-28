@@ -1,8 +1,6 @@
-import Header from "../../components/header/header";
-import WriteButton from "../../components/writeButton/writeButton";
 import PFA from "../../assets/img/PFA.png";
+import { Header, Rank, WriteButton } from "../../components";
 import * as S from "./styles";
-import Rank from "../../components/rank/rank";
 
 const Main = () => {
   return (

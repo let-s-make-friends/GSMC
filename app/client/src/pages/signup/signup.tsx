@@ -1,10 +1,9 @@
 import * as S from "./styles";
-import Header from "../../components/header/header";
-import Input from "../../components/input/input";
-import DefaultButton from "../../components/defaultButton/defaultButton";
+
 import { API } from "../../types/api";
 import { useState, useEffect } from "react";
 import { Auth, CertificateCode } from "../../types/auth";
+import { DefaultButton, Header, Input } from "../../components";
 
 // sxxxxx@gsm.hs.kr
 const emailRegEx = /^s\d{5}@gsm\.hs\.kr$/;

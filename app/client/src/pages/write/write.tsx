@@ -1,12 +1,14 @@
-import DatePicker from "../../components/datePicker/datePicker";
-import Dropdown from "../../components/dropdown/dropdown";
-import Header from "../../components/header/header";
-import ImgButton from "../../components/imgButton/imgButton";
-import Textarea from "../../components/textarea/textarea";
-import WriteInput from "../../components/writeInput/writeInput";
 import { Container, Title } from "./styles";
 import { category2, category } from "../../types/activity";
 import { useState } from "react";
+import {
+  DatePicker,
+  Dropdown,
+  Header,
+  ImgButton,
+  Textarea,
+  WriteInput,
+} from "../../components";
 
 const Write = () => {
   const [category, setCategory] = useState<string>("인문");

@@ -1,5 +1,5 @@
 import { API } from "../types/api";
-import { Auth, CertificateCode } from "../types/auth";
+import { Auth, CertificateCode, SignIn } from "../types/auth";
 
 export const submitSignUp = async (
   email: string,
@@ -22,6 +22,17 @@ export const getAuthCode = async (email: string) => {
     method: "POST",
     body: {
       email: email,
+    },
+  });
+  return res;
+};
+
+export const submitLogin = async (email: string, password: string) => {
+  const res = await API<SignIn>("/api/v1/auth/sign-in", {
+    method: "POST",
+    body: {
+      email: email,
+      password: password,
     },
   });
   return res;

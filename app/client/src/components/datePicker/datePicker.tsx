@@ -23,6 +23,7 @@ const DatePicker = ({ label }: DatePickerProps) => {
       <label>{label}</label>
       <div style={{ display: "flex", gap: "8px" }}>
         <DropdownContainer
+          name={label}
           value={year}
           onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
             setYear(Number(e.target.value))

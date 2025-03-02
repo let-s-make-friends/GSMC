@@ -8,7 +8,7 @@ const WriteInput = ({ label }: WriteInputProps) => {
   return (
     <Container>
       <label htmlFor={label}>{label}</label>
-      <Input name={label} id={label} type="text" />
+      <Input name={label} required id={label} type="text" />
     </Container>
   );
 };

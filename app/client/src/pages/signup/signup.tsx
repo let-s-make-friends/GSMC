@@ -73,7 +73,7 @@ const Signup = () => {
           label="회원가입"
           active={signupActive}
           onClick={async () => {
-            const res = await submitSignUp(email, password, authCode);
+            const res = await submitSignUp(email, password, Number(authCode));
             res.success ? go("/login") : setEmail("");
           }}
         />

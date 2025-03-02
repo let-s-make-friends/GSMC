@@ -2,10 +2,10 @@ import axios from "axios";
 
 type APIMethod = "GET" | "POST" | "PUT" | "DELETE";
 
-interface Options {
+interface Options<T> {
   method: APIMethod;
-  headers: Record<string, string>;
-  body?: string;
+  headers?: Record<string, string>;
+  body?: T;
   signal?: AbortSignal;
 }
 
@@ -16,16 +16,22 @@ interface ApiResponse<T> {
   error?: string;
 }
 
+interface apiError {
+  message: string;
+  status: number;
+}
+
 export async function API<T>(
   endpoint: string,
-  options: Options
+  options: Options<T>
 ): Promise<ApiResponse<T>> {
   try {
-    const res = await axios(import.meta.env.VITE_API_URI + endpoint, {
-      ...options,
+    const res = await axios(import.meta.env.VITE_API_URL + endpoint, {
+      method: options.method,
       headers: {
         ...options.headers,
       },
+      data: options.body,
       signal: options.signal,
     });
 
@@ -33,10 +39,11 @@ export async function API<T>(
       success: true,
       data: res.data,
     };
-  } catch (error: any) {
+  } catch (error) {
+    const err = error as apiError;
     return {
       success: false,
-      error: error?.response?.data?.message || error.message || "Unknown error",
+      error: err?.message || "알 수 없는 오류",
     };
   }
 }

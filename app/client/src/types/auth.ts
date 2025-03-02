@@ -4,5 +4,5 @@ export interface CertificateCode {
 
 export interface Auth extends CertificateCode {
   password: string;
-  authCode: string;
+  code: number;
 }

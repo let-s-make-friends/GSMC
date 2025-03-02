@@ -4,14 +4,14 @@ import { Auth, CertificateCode } from "../types/auth";
 export const submitSignUp = async (
   email: string,
   password: string,
-  authCode: string
+  authCode: number
 ) => {
   const res = await API<Auth>("/api/v1/auth/sign-up", {
     method: "POST",
     body: {
       email: email,
       password: password,
-      authCode: authCode,
+      code: authCode,
     },
   });
   return res;

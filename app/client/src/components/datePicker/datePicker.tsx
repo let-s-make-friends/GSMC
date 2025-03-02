@@ -1,22 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, DropdownContainer } from "./styles";
 
 interface DatePickerProps {
   label: string;
-  onChange?: (date: string) => void;
+  onChange: (date: string) => void;
+  value?: string;
   initialDate?: string;
 }
 
-const DatePicker = ({ label }: DatePickerProps) => {
+const DatePicker = ({ label, onChange, initialDate }: DatePickerProps) => {
   const currentYear = new Date().getFullYear();
   const [year, setYear] = useState(currentYear);
   const [month, setMonth] = useState(1);
   const [day, setDay] = useState(1);
 
-  const years = Array.from({ length: 101 }, (_, i) => currentYear - 100 + i);
+  const years = Array.from({ length: 3 }, (_, i) => currentYear + 1 - i);
   const months = Array.from({ length: 12 }, (_, i) => i + 1);
+
   const daysInMonth = new Date(year, month, 0).getDate();
   const days = Array.from({ length: daysInMonth }, (_, i) => i + 1);
+
+  useEffect(() => {
+    if (initialDate) {
+      const [initialYear, initialMonth, initialDay] = initialDate.split("-");
+      setYear(Number(initialYear));
+      setMonth(Number(initialMonth));
+      setDay(Number(initialDay));
+    }
+  }, [initialDate]);
+
+  useEffect(() => {
+    const formattedDate = `${year}-${String(month).padStart(2, "0")}-${String(
+      day
+    ).padStart(2, "0")}`;
+    onChange(formattedDate);
+  }, [year, month, day, onChange]);
 
   return (
     <Container>

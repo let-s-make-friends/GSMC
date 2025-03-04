@@ -16,7 +16,7 @@ const ImgButton = ({ onChange, value }: ImgButtonProps) => {
         type="file"
         onChange={async (e) => {
           const res = await getImgURL(e.target.value);
-          onChange(res as string);
+          res && onChange(res);
         }}
       />
     </Container>

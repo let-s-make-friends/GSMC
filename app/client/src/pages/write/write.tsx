@@ -1,7 +1,6 @@
 import { Container, Title } from "./styles";
 import { category2, category, Activity } from "../../types/activity";
 import {
-  DatePicker,
   DefaultButton,
   Dropdown,
   Header,
@@ -49,10 +48,11 @@ const Write = () => {
         options={["교내 수상", "교외 수상", "교내 참가", "교외 참가", "동아리"]}
       />
 
-      <DatePicker
+      <Dropdown
         value={activity.activityDate}
-        onChange={(value) => updateActivityField("activityDate", value)}
+        setValue={(value) => updateActivityField("activityDate", value)}
         label="날짜"
+        options={["1학기", "2학기"]}
       />
 
       <WriteInput

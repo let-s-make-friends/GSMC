@@ -1,13 +1,19 @@
-import Plus from "../../assets/svg/plus.svg";
-import { Button, Container } from "./styles";
+import { Container } from "./styles";
 
-const ImgButton = () => {
+interface ImgButtonProps {
+  onChange: (value: string) => void;
+  value: string;
+}
+
+const ImgButton = ({ onChange, value }: ImgButtonProps) => {
   return (
     <Container>
-      <label htmlFor="img">이미지</label>
-      <Button>
-        <img src={Plus} id="img" alt="plus" />
-      </Button>
+      <label>이미지</label>
+      <input
+        value={value}
+        type="file"
+        onChange={(e) => onChange(e.target.value)}
+      />
     </Container>
   );
 };

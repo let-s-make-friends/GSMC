@@ -19,6 +19,9 @@ const Dropdown = <T,>({ options, label, setValue }: DropdownProps<T>) => {
         }
         id={label}
       >
+        <option key={options.length} hidden value={"선택해주세요"}>
+          선택해주세요
+        </option>
         {options.map((option, index) => (
           <option key={index} value={String(option)}>
             {String(option)}

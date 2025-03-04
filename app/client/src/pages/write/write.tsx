@@ -1,4 +1,4 @@
-import { Container, Title } from "./styles";
+import { Container, Title, Wrrapper } from "./styles";
 import { category2, category, Activity } from "../../types/activity";
 import {
   DefaultButton,
@@ -72,7 +72,16 @@ const Write = () => {
         onChange={(value) => updateActivityField("imageUrl", value)}
       />
 
-      <DefaultButton label="작성 완료" active={true} />
+      <Wrrapper>
+        <DefaultButton
+          label="작성 완료"
+          active={
+            activity.body !== "" &&
+            activity.subject !== "" &&
+            activity.activityDate !== ""
+          }
+        />
+      </Wrrapper>
     </Container>
   );
 };

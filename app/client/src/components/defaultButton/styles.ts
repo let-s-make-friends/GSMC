@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Button = styled.button<{ $isActive: boolean }>`
+  width: 100%;
   padding: 0.8125rem 1rem;
   cursor: pointer;
   border-radius: 0.75rem;

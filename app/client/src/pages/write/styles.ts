@@ -17,3 +17,7 @@ export const Title = styled.h1`
   line-height: normal;
   text-transform: capitalize;
 `;
+
+export const Wrrapper = styled.div`
+  width: 30%;
+`;

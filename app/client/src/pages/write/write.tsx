@@ -14,7 +14,7 @@ import { useState } from "react";
 const Write = () => {
   const [activity, setActivity] = useState<Activity>({
     studyCategory: "인문",
-    topic: "",
+    subject: "",
     activityCategory: "교내 수상",
     body: "",
     activityDate: "",
@@ -56,8 +56,8 @@ const Write = () => {
       />
 
       <WriteInput
-        value={activity.topic}
-        onChange={(value) => updateActivityField("topic", value)}
+        value={activity.subject}
+        onChange={(value) => updateActivityField("subject", value)}
         label="주제"
       />
 
@@ -67,7 +67,10 @@ const Write = () => {
         label="내용"
       />
 
-      <ImgButton onChange={(url) => updateActivityField("imageUrl", url)} />
+      <ImgButton
+        value={activity.imageUrl}
+        onChange={(value) => updateActivityField("imageUrl", value)}
+      />
 
       <DefaultButton label="작성 완료" active={true} />
     </Container>

@@ -21,9 +21,3 @@ export const Wrapper = styled.div`
   border: 1px solid var(--New-group-gray-100, #eff0f2);
   background: #fefefe;
 `;
-
-export const EmailWrapper = styled.div`
-  display: flex;
-  align-items: flex-end;
-  gap: 0.75rem;
-`;

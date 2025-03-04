@@ -1,3 +1,4 @@
+import { getImgURL } from "../../apis/getImgURL";
 import { Container } from "./styles";
 
 interface ImgButtonProps {
@@ -10,9 +11,13 @@ const ImgButton = ({ onChange, value }: ImgButtonProps) => {
     <Container>
       <label>이미지</label>
       <input
+        accept="image/png, image/jpeg"
         value={value}
         type="file"
-        onChange={(e) => onChange(e.target.value)}
+        onChange={async (e) => {
+          const res = await getImgURL(e.target.value);
+          onChange(res as string);
+        }}
       />
     </Container>
   );

@@ -16,6 +16,10 @@ export const TextareaInput = styled.textarea`
   outline: none;
   font-size: 1rem;
   height: 15rem;
+  font-family: Pretendard;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 `;
 
 export const Length = styled.span`

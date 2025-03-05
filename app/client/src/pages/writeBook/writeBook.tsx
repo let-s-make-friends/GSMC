@@ -8,6 +8,8 @@ import {
 } from "../../components";
 import { Book } from "../../types/write";
 import { Container, Title, WhiteBtn, Wrapper } from "./styles";
+import { submitBook } from "../../apis/write";
+import { useNavigate } from "react-router-dom";
 
 const WriteBook = () => {
   const [book, setBook] = useState<Book>({
@@ -18,6 +20,7 @@ const WriteBook = () => {
     postStatus: "",
     body: "",
   });
+  const go = useNavigate();
 
   const updateBookField = (field: keyof Book, value: string | number) => {
     setBook((preBook) => ({
@@ -61,6 +64,8 @@ const WriteBook = () => {
         <WhiteBtn
           onClick={async () => {
             updateBookField("postStatus", "임시 저장");
+            const res = await submitBook(book);
+            res.success && go("/main");
           }}
         >
           임시 저장
@@ -69,10 +74,15 @@ const WriteBook = () => {
           label="작성 완료"
           active={
             book.body !== "" &&
-            book.semester !== 0 &&
+            book.page !== 0 &&
             book.title !== "" &&
             book.author !== ""
           }
+          onClick={async () => {
+            updateBookField("postStatus", "게시");
+            const res = await submitBook(book);
+            res.success && go("/main");
+          }}
         />
       </Wrapper>
     </Container>

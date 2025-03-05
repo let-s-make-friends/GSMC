@@ -9,16 +9,18 @@ import {
   WriteInput,
 } from "../../components";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { submitActivity } from "../../apis/write";
 
 const Write = () => {
   const [activity, setActivity] = useState<Activity>({
     studyCategory: "인문",
-    subject: "",
     activityCategory: "교내 수상",
-    body: "",
     semester: 0,
+    subject: "",
+    body: "",
     imageUrl: "",
-    postStatus: "임시 저장",
+    postStatus: "",
   });
 
   const updateActivityField = (
@@ -30,7 +32,7 @@ const Write = () => {
       [field]: value,
     }));
   };
-
+  const go = useNavigate();
   return (
     <Container>
       <Header />
@@ -76,11 +78,19 @@ const Write = () => {
 
       <Wrrapper>
         <DefaultButton
+          onClick={async () => {
+            updateActivityField("postStatus", "게시");
+            const res = await submitActivity(activity);
+            res.success && go("/");
+          }}
           label="작성 완료"
           active={
             activity.body !== "" &&
             activity.subject !== "" &&
-            activity.semester !== 0
+            activity.semester !== 0 &&
+            activity.imageUrl !== ""
+              ? activity.body.length > 200
+              : activity.body.length > 400 && activity.postStatus !== ""
           }
         />
       </Wrrapper>

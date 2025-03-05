@@ -1,12 +1,22 @@
 import { API } from "../types/api";
 
-export async function getImgURL(file: any) {
-  const res = await API<string>("/api/v1/image", {
+export async function getImgURL(file: string) {
+  const formData = new FormData();
+  formData.append("image", file);
+
+  const req = {
+    formData,
+    Value: file,
+    Key: "1image",
+  };
+
+  const res = await API<Object>("/api/v1/image", {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
     method: "POST",
-    body: file,
+    body: req,
   });
-  return res.data;
+
+  return res.data as string;
 }

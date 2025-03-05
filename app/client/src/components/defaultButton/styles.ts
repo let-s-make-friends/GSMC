@@ -1,22 +1,32 @@
 import styled from "styled-components";
 
-export const Button = styled.button<{ $isActive: boolean }>`
-  width: 100%;
-  padding: 0.8125rem 1rem;
-  cursor: pointer;
+interface Button {
+  isActive: boolean;
+  isFull: boolean;
+}
+
+export const Button = styled.button<Button>`
+  display: flex;
+  width: ${(props) => (props.isFull ? "100%" : "max-content")};
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  align-items: center;
+  gap: 0.625rem;
   border-radius: 0.75rem;
   border: none;
   margin-bottom: 0.5rem;
   background-color: ${({ $isActive }) => ($isActive ? "#003CFF" : "#012CBA")};
+
 `;
 
-export const Label = styled.span<{ $isActive: boolean }>`
+export const Label = styled.span<{ isActive: boolean }>`
   text-align: center;
-
-  color: ${({ $isActive }) => ($isActive ? "#FFFFFF" : "#C5C5C5")};
   font-family: Inter;
   font-size: 1rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 1.375rem;
+  white-space: nowrap;
+  line-height: 1.375rem; /* 137.5% */
+
+  color: ${(props) => (props.isActive ? "#FFFFFF" : "#C5C5C5")};
 `;

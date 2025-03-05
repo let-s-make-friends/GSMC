@@ -3,6 +3,7 @@ import Signup from "../pages/signup/signup";
 import Main from "../pages/main/main";
 import Write from "../pages/write/write";
 import Login from "../pages/login/login";
+import WriteBook from "../pages/writeBook/writeBook";
 
 export const Router = () => {
   return (
@@ -12,6 +13,7 @@ export const Router = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/main" element={<Main />} />
         <Route path="/write" element={<Write />} />
+        <Route path="/writeBook" element={<WriteBook />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,5 +1,5 @@
 import { Container, Title, WhiteBtn, Wrrapper } from "./styles";
-import { category2, category, Activity } from "../../types/activity";
+import { category2, category, Activity } from "../../types/write";
 import {
   DefaultButton,
   Dropdown,

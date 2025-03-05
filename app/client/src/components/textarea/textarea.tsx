@@ -33,6 +33,7 @@ const Textarea = ({
       </div>
 
       <TextareaInput
+        maxLength={1000}
         ref={textareaRef}
         placeholder={placeholder}
         onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>

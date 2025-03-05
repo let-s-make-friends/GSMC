@@ -104,8 +104,8 @@ const Write = () => {
             activity.subject !== "" &&
             activity.semester !== 0 &&
             activity.imageUrl !== ""
-              ? activity.body.length > 200
-              : activity.body.length > 400 && activity.postStatus !== ""
+              ? length > 200
+              : length > 400 && activity.postStatus !== ""
           }
         />
       </Wrrapper>

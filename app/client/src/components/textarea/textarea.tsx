@@ -6,9 +6,16 @@ interface TextareaProps {
   onChange: (value: string) => void;
   value: string;
   length?: number;
+  placeholder: string;
 }
 
-const Textarea = ({ label, onChange, value, length }: TextareaProps) => {
+const Textarea = ({
+  label,
+  onChange,
+  value,
+  length,
+  placeholder,
+}: TextareaProps) => {
   return (
     <Container>
       <div>
@@ -17,6 +24,7 @@ const Textarea = ({ label, onChange, value, length }: TextareaProps) => {
       </div>
 
       <TextareaInput
+        placeholder={placeholder}
         onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
           onChange(e.target.value)
         }

@@ -67,6 +67,7 @@ const Write = () => {
       />
 
       <Textarea
+        placeholder="사진 첨부 시 200자, 사진 미첨부 시 400자 입력"
         length={length}
         value={activity.body}
         onChange={(value) => {

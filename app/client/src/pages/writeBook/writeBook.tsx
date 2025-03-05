@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Dropdown, Textarea, WriteInput } from "../../components";
+import { Dropdown, Header, Textarea, WriteInput } from "../../components";
 import { Book } from "../../types/write";
+import { Container, Title } from "./styles";
 
 const WriteBook = () => {
   const [book, setBook] = useState<Book>({
@@ -19,8 +20,9 @@ const WriteBook = () => {
     }));
   };
   return (
-    <div>
-      <h1>독서 영역 작성하기</h1>
+    <Container>
+      <Header />
+      <Title>독서 영역 작성하기</Title>
       <Dropdown
         setValue={(value) => updateBookField("semester", value)}
         value={book.semester}
@@ -48,7 +50,7 @@ const WriteBook = () => {
         placeholder="200자 이상 입력"
         label="내용"
       />
-    </div>
+    </Container>
   );
 };
 

@@ -1,16 +1,21 @@
 import React from "react";
-import { Container, TextareaInput } from "./styles";
+import { Container, Length, TextareaInput } from "./styles";
 
 interface TextareaProps {
   label: string;
   onChange: (value: string) => void;
   value: string;
+  length?: number;
 }
 
-const Textarea = ({ label, onChange, value }: TextareaProps) => {
+const Textarea = ({ label, onChange, value, length }: TextareaProps) => {
   return (
     <Container>
-      <label htmlFor={label}>{label}</label>
+      <div>
+        <label htmlFor={label}>{label}</label>
+        {length !== 0 && <Length> ({length})</Length>}
+      </div>
+
       <TextareaInput
         onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
           onChange(e.target.value)

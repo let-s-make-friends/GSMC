@@ -22,6 +22,7 @@ const Write = () => {
     imageUrl: "",
     postStatus: "",
   });
+  const [length, setLength] = useState<number>(0);
 
   const updateActivityField = (
     field: keyof Activity,
@@ -66,8 +67,12 @@ const Write = () => {
       />
 
       <Textarea
+        length={length}
         value={activity.body}
-        onChange={(value) => updateActivityField("body", value)}
+        onChange={(value) => {
+          setLength(value.length);
+          updateActivityField("body", value);
+        }}
         label="내용"
       />
 

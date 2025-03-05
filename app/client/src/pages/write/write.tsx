@@ -83,7 +83,15 @@ const Write = () => {
       />
 
       <Wrrapper>
-        <WhiteBtn>임시 저장</WhiteBtn>
+        <WhiteBtn
+          onClick={async () => {
+            updateActivityField("postStatus", "임시 저장");
+            const res = await submitActivity(activity);
+            res.success && go("/");
+          }}
+        >
+          임시 저장
+        </WhiteBtn>
         <DefaultButton
           onClick={async () => {
             updateActivityField("postStatus", "게시");

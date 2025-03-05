@@ -1,4 +1,4 @@
-import { Container, Title, Wrrapper } from "./styles";
+import { Container, Title, WhiteBtn, Wrrapper } from "./styles";
 import { category2, category, Activity } from "../../types/activity";
 import {
   DefaultButton,
@@ -83,6 +83,7 @@ const Write = () => {
       />
 
       <Wrrapper>
+        <WhiteBtn>임시 저장</WhiteBtn>
         <DefaultButton
           onClick={async () => {
             updateActivityField("postStatus", "게시");

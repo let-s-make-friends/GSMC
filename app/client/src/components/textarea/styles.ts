@@ -9,7 +9,7 @@ export const Container = styled.div`
 
 export const TextareaInput = styled.textarea`
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.625rem 1rem;
   border: 1px solid #ccc;
   border-radius: 0.625rem;
   resize: none;

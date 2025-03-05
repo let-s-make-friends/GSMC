@@ -3,31 +3,27 @@ import { Container, DropdownContainer } from "./styles";
 
 interface DropdownProps<T> {
   options: T[];
-  value: string;
-  onChange: (value: T) => void;
+  value: T;
+  setValue: (value: T) => void;
   label: string;
 }
 
-const Dropdown = <T,>({
-  options,
-  label,
-  value,
-  onChange,
-}: DropdownProps<T>) => {
+const Dropdown = <T,>({ options, label, setValue }: DropdownProps<T>) => {
   return (
     <Container>
       <label htmlFor={label}>{label}</label>
       <DropdownContainer
         required
-        name={label}
-        id={label}
-        value={value}
         onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-          onChange(e.target.value as T)
+          setValue(e.target.value as T)
         }
+        id={label}
       >
+        <option key={options.length} hidden value={"선택해주세요"}>
+          선택해주세요
+        </option>
         {options.map((option, index) => (
-          <option key={index} value={value}>
+          <option key={index} value={String(option)}>
             {String(option)}
           </option>
         ))}

@@ -1,13 +1,24 @@
-import Plus from "../../assets/svg/plus.svg";
-import { Button, Container } from "./styles";
+import { getImgURL } from "../../apis/getImgURL";
+import { Container } from "./styles";
 
-const ImgButton = () => {
+interface ImgButtonProps {
+  onChange: (value: string) => void;
+  value: string;
+}
+
+const ImgButton = ({ onChange, value }: ImgButtonProps) => {
   return (
     <Container>
-      <label htmlFor="img">이미지</label>
-      <Button>
-        <img src={Plus} id="img" alt="plus" />
-      </Button>
+      <label>이미지</label>
+      <input
+        accept="image/png, image/jpeg"
+        value={value}
+        type="file"
+        onChange={async (e) => {
+          const res = await getImgURL(e.target.value);
+          res && onChange(res);
+        }}
+      />
     </Container>
   );
 };

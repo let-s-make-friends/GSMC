@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.form`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,4 +16,8 @@ export const Title = styled.h1`
   font-weight: 400;
   line-height: normal;
   text-transform: capitalize;
+`;
+
+export const Wrrapper = styled.div`
+  width: 30%;
 `;

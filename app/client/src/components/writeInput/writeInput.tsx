@@ -11,9 +11,6 @@ const WriteInput = ({ label, onChange, value }: WriteInputProps) => {
   return (
     <Container>
       <label htmlFor={label}>{label}</label>
-<<<<<<< HEAD
-      <Input name={label} id={label} type="text" />
-=======
       <Input
         maxLength={30}
         value={value}
@@ -25,7 +22,6 @@ const WriteInput = ({ label, onChange, value }: WriteInputProps) => {
         id={label}
         type="text"
       />
->>>>>>> e4d3a938781643fc6494c5d18b137ebe3bda7514
     </Container>
   );
 };

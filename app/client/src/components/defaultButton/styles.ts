@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 interface Button {
-  isActive: boolean;
-  isFull: boolean;
+  $isActive: boolean;
+  $isFull: boolean;
 }
 
 export const Button = styled.button<Button>`
   display: flex;
-  width: ${(props) => (props.isFull ? "100%" : "max-content")};
+  width: ${(props) => (props.$isFull ? "100%" : "max-content")};
   justify-content: center;
   padding: 0.75rem 1rem;
   align-items: center;
@@ -15,10 +15,10 @@ export const Button = styled.button<Button>`
   border-radius: 0.75rem;
   border: none;
 
-  background-color: ${(props) => (props.isActive ? "#003CFF" : "#012CBA")};
+  background-color: ${(props) => (props.$isActive ? "#003CFF" : "#012CBA")};
 `;
 
-export const Label = styled.span<{ isActive: boolean }>`
+export const Label = styled.span<{ $isActive: boolean }>`
   text-align: center;
   font-family: Inter;
   font-size: 1rem;
@@ -27,5 +27,5 @@ export const Label = styled.span<{ isActive: boolean }>`
   white-space: nowrap;
   line-height: 1.375rem; /* 137.5% */
 
-  color: ${(props) => (props.isActive ? "#FFFFFF" : "#C5C5C5")};
+  color: ${(props) => (props.$isActive ? "#FFFFFF" : "#C5C5C5")};
 `;

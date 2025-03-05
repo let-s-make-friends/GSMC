@@ -9,8 +9,8 @@ interface DefaultButtonProps {
 
 const DefaultButton = ({ label, active, fullW = false, onClick }: DefaultButtonProps) => {
   return (
-    <S.Button onClick={onClick} isActive={active} isFull={fullW} >
-      <S.Label isActive={active}>{label}</S.Label>
+    <S.Button onClick={onClick} $isActive={active} $isFull={fullW} >
+      <S.Label $isActive={active}>{label}</S.Label>
     </S.Button >
   );
 };

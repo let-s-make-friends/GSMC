@@ -6,6 +6,7 @@ export const Button = styled.button<{ $isActive: boolean }>`
   cursor: pointer;
   border-radius: 0.75rem;
   border: none;
+  margin-bottom: 0.5rem;
   background-color: ${({ $isActive }) => ($isActive ? "#003CFF" : "#012CBA")};
 `;
 

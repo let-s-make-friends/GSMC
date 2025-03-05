@@ -7,13 +7,25 @@ export const Container = styled.div`
   width: 30%;
 `;
 
-export const Button = styled.button`
-  display: flex;
-  padding: 0.5rem 1.5rem;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  border-radius: 0.625rem;
+export const Input = styled.input`
+  display: none;
+`;
+
+export const Text = styled.div`
+  height: 30px;
   background: #fff;
-  border: none;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Label = styled.label`
+  padding: 0.4rem 1rem;
+  background: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 1rem;
 `;

@@ -30,22 +30,29 @@ const Login = () => {
     <S.Container>
       <Header />
       <S.Wrapper>
-        <Input
-          label="이메일"
-          placeholder="@gsm.hs.kr"
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
+        <S.SecondWrapper>
+          <S.InputWrapper>
+            <S.InputLabel>이메일</S.InputLabel>
+            <Input
+              placeholder="@gsm.hs.kr"
+              type="email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </S.InputWrapper>
 
-        <Input
-          label="새 비밀번호"
-          placeholder="영문, 숫자 포함 8글자 이상으로 구성"
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+          <S.InputWrapper>
+            <S.InputLabel>비밀번호</S.InputLabel>
+            <Input
+              placeholder="영문, 숫자 포함 8글자 이상으로 구성"
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </S.InputWrapper>
 
+        </S.SecondWrapper>
         <DefaultButton
           label="로그인"
+          fullW={true}
           active={signinActive}
           onClick={async () => {
             const res = await submitLogin(email, password);

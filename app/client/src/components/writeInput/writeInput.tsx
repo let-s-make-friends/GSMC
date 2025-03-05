@@ -3,8 +3,8 @@ import { Container, Input } from "./styles";
 
 interface WriteInputProps {
   label: string;
-  onChange: (value: string) => void;
-  value: string;
+  onChange: (value: string | number) => void;
+  value: string | number;
 }
 
 const WriteInput = ({ label, onChange, value }: WriteInputProps) => {

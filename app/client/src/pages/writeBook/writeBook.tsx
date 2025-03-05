@@ -1,11 +1,17 @@
 import { useState } from "react";
-import { Dropdown, Header, Textarea, WriteInput } from "../../components";
+import {
+  DefaultButton,
+  Dropdown,
+  Header,
+  Textarea,
+  WriteInput,
+} from "../../components";
 import { Book } from "../../types/write";
-import { Container, Title } from "./styles";
+import { Container, Title, WhiteBtn, Wrapper } from "./styles";
 
 const WriteBook = () => {
   const [book, setBook] = useState<Book>({
-    semester: 0,
+    semester: 1,
     author: "",
     title: "",
     page: 0,
@@ -45,11 +51,30 @@ const WriteBook = () => {
         label="페이지"
       />
       <Textarea
+        length={book.body.length}
         onChange={(value) => updateBookField("body", value)}
         value={book.body}
         placeholder="200자 이상 입력"
         label="내용"
       />
+      <Wrapper>
+        <WhiteBtn
+          onClick={async () => {
+            updateBookField("postStatus", "임시 저장");
+          }}
+        >
+          임시 저장
+        </WhiteBtn>
+        <DefaultButton
+          label="작성 완료"
+          active={
+            book.body !== "" &&
+            book.semester !== 0 &&
+            book.title !== "" &&
+            book.author !== ""
+          }
+        />
+      </Wrapper>
     </Container>
   );
 };

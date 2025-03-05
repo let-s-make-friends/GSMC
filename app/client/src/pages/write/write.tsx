@@ -56,7 +56,7 @@ const Write = () => {
       <Dropdown<number>
         value={activity.semester}
         setValue={(value) => updateActivityField("semester", value)}
-        label="날짜"
+        label="학기"
         options={[1, 2]}
       />
 

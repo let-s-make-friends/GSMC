@@ -9,6 +9,7 @@ export const Button = styled.button<Button>`
   display: flex;
   width: ${(props) => (props.$isFull ? "100%" : "max-content")};
   justify-content: center;
+  cursor: pointer;
   padding: 0.75rem 1rem;
   align-items: center;
   gap: 0.625rem;

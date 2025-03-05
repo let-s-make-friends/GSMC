@@ -42,4 +42,5 @@ export const WhiteBtn = styled.button`
   font-style: normal;
   font-weight: 600;
   line-height: 1.375rem; /* 137.5% */
+  cursor: pointer;
 `;

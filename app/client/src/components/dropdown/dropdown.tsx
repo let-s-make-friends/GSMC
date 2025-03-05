@@ -1,37 +1,45 @@
-import React from "react";
-import { Container, DropdownContainer } from "./styles";
+import { useState } from "react";
+import { Container, DropdownButton, OptionsList, Option } from "./styles";
 
 interface DropdownProps<T> {
   options: T[];
-  value: string;
-  onChange: (value: T) => void;
+  value: T;
+  setValue: (value: T) => void;
   label: string;
 }
 
 const Dropdown = <T,>({
   options,
   label,
+  setValue,
   value,
-  onChange,
 }: DropdownProps<T>) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleOptionClick = (option: T) => {
+    setValue(option);
+    setIsOpen(false);
+  };
+
   return (
     <Container>
       <label htmlFor={label}>{label}</label>
-      <DropdownContainer
-        required
-        name={label}
-        id={label}
-        value={value}
-        onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-          onChange(e.target.value as T)
-        }
-      >
-        {options.map((option, index) => (
-          <option key={index} value={value}>
-            {String(option)}
-          </option>
-        ))}
-      </DropdownContainer>
+      <DropdownButton onClick={toggleDropdown}>
+        {String(value) || "선택해주세요"}
+      </DropdownButton>
+      {isOpen && (
+        <OptionsList>
+          {options.map((option, index) => (
+            <Option key={index} onClick={() => handleOptionClick(option)}>
+              {String(option)}
+            </Option>
+          ))}
+        </OptionsList>
+      )}
     </Container>
   );
 };

@@ -6,6 +6,5 @@ export { default as WriteButton } from "./writeButton/writeButton";
 export { default as WriteInput } from "./writeInput/writeInput";
 export { default as Textarea } from "./textarea/textarea";
 export { default as ImgButton } from "./imgButton/imgButton";
-export { default as DatePicker } from "./datePicker/datePicker";
 export { default as Dropdown } from "./dropdown/dropdown";
 export { default as RankMember } from "./rankMember/rankMember";

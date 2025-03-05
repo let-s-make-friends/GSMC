@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1rem;
-  height: 100%;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
 `;
 
 export const Title = styled.h1`
@@ -18,7 +19,7 @@ export const Title = styled.h1`
   text-transform: capitalize;
 `;
 
-export const Wrrapper = styled.div`
+export const Wrapper = styled.div`
   width: 30%;
 `;
 
@@ -31,6 +32,7 @@ export const WhiteBtn = styled.button`
   gap: 0.5rem;
   border-radius: 0.75rem;
   background: #fefefe;
+  margin-top: 2rem;
   border: none;
   margin-bottom: 0.5rem;
   color: #003cff;
@@ -40,4 +42,5 @@ export const WhiteBtn = styled.button`
   font-style: normal;
   font-weight: 600;
   line-height: 1.375rem; /* 137.5% */
+  cursor: pointer;
 `;

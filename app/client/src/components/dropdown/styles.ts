@@ -7,16 +7,46 @@ export const Container = styled.div`
   gap: 0.5rem;
 `;
 
-export const DropdownContainer = styled.select`
+export const DropdownButton = styled.button`
   width: 100%;
   height: 2.5rem;
   border-radius: 0.625rem;
-  border: none;
   padding: 0.625rem 1rem;
-
+  text-align: left;
+  background-color: white;
+  border: 1px solid #ccc;
+  cursor: pointer;
   appearance: none;
-  background: white
-    url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='20' height='20' fill='gray'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E")
-    no-repeat right 10px center;
-  outline: none;
+
+  &:hover {
+    background-color: #f1f1f1;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #999;
+  }
+`;
+
+export const OptionsList = styled.ul`
+  position: absolute;
+  width: 30%;
+  border-radius: 0.625rem;
+  margin-top: 0.5rem;
+  background-color: white;
+  border: 1px solid #ccc;
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+`;
+
+export const Option = styled.li`
+  color: #111;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f1f1f1;
+  }
 `;

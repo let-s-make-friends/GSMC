@@ -16,13 +16,15 @@ const Write = () => {
     subject: "",
     activityCategory: "교내 수상",
     body: "",
-    activityDate: "",
-    textLength: 0,
+    semester: 0,
     imageUrl: "",
     postStatus: "임시 저장",
   });
 
-  const updateActivityField = (field: keyof Activity, value: string) => {
+  const updateActivityField = (
+    field: keyof Activity,
+    value: string | number
+  ) => {
     setActivity((prevActivity) => ({
       ...prevActivity,
       [field]: value,
@@ -48,11 +50,11 @@ const Write = () => {
         options={["교내 수상", "교외 수상", "교내 참가", "교외 참가", "동아리"]}
       />
 
-      <Dropdown
-        value={activity.activityDate}
-        setValue={(value) => updateActivityField("activityDate", value)}
+      <Dropdown<number>
+        value={activity.semester}
+        setValue={(value) => updateActivityField("semester", value)}
         label="날짜"
-        options={["1학기", "2학기"]}
+        options={[1, 2]}
       />
 
       <WriteInput
@@ -78,7 +80,7 @@ const Write = () => {
           active={
             activity.body !== "" &&
             activity.subject !== "" &&
-            activity.activityDate !== ""
+            activity.semester !== 0
           }
         />
       </Wrrapper>

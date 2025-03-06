@@ -8,9 +8,9 @@ interface WriteButtonProps {
 }
 
 const WriteButton = ({ label, location }: WriteButtonProps) => {
-  const N = useNavigate();
+  const go = useNavigate();
   return (
-    <Button onClick={() => N("/" + location)}>
+    <Button onClick={() => go(`/${location}`)}>
       {label}
       <img src={Arrow} alt=">" />
     </Button>

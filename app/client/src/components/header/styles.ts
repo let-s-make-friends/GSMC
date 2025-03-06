@@ -24,7 +24,7 @@ export const Header = styled.header`
 
 export const Nav = styled.ul`
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   color: #fff;
   font-size: 1.25rem;
   font-style: normal;

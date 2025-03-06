@@ -5,6 +5,9 @@ export async function submitActivity(data: Activity) {
   const res = await API<Activity>("/api/v1/activity", {
     method: "POST",
     body: data,
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    },
   });
   return res;
 }

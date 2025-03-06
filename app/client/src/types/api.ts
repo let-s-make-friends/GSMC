@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getToken } from "../apis/getToken";
 
 type APIMethod = "GET" | "POST" | "PUT" | "DELETE";
 
@@ -21,10 +22,10 @@ interface apiError {
   status: number;
 }
 
-export async function API<T>(
+export async function API<Req, Res = Req>(
   endpoint: string,
-  options: Options<T>
-): Promise<ApiResponse<T>> {
+  options: Options<Req>
+): Promise<ApiResponse<Res>> {
   try {
     const res = await axios(import.meta.env.VITE_API_URL + endpoint, {
       method: options.method,
@@ -41,6 +42,11 @@ export async function API<T>(
     };
   } catch (error) {
     const err = error as apiError;
+
+    if (err.status == 401 && localStorage.getItem("refreshToken")) {
+      getToken();
+    }
+
     return {
       success: false,
       error: err?.message || "알 수 없는 오류",

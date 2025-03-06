@@ -19,3 +19,12 @@ export interface Activity {
   imageUrl: string; // 이미지 url
   postStatus: string; // "임시 저장" | "게시"
 }
+
+export interface Book {
+  title: string; // 책 제목
+  author: string; // 책 작가
+  page: number; // 책 페이지
+  body: string; // 글 본문
+  semester: number; // 학기 1 | 2
+  postStatus: string; // "임시 저장" | "게시"
+}

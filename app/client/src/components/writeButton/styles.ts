@@ -14,4 +14,5 @@ export const Button = styled.button`
   font-weight: 400;
   line-height: normal;
   text-transform: capitalize;
+  cursor: pointer;
 `;

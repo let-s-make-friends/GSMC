@@ -1,5 +1,5 @@
-import { Container, Title, Wrrapper } from "./styles";
-import { category2, category, Activity } from "../../types/activity";
+import { Container, Title, WhiteBtn, Wrrapper } from "./styles";
+import { category2, category, Activity } from "../../types/write";
 import {
   DefaultButton,
   Dropdown,
@@ -22,6 +22,7 @@ const Write = () => {
     imageUrl: "",
     postStatus: "",
   });
+  const [length, setLength] = useState<number>(0);
 
   const updateActivityField = (
     field: keyof Activity,
@@ -55,7 +56,7 @@ const Write = () => {
       <Dropdown<number>
         value={activity.semester}
         setValue={(value) => updateActivityField("semester", value)}
-        label="날짜"
+        label="학기"
         options={[1, 2]}
       />
 
@@ -66,8 +67,13 @@ const Write = () => {
       />
 
       <Textarea
+        placeholder="사진 첨부 시 200자, 사진 미첨부 시 400자 입력"
+        length={length}
         value={activity.body}
-        onChange={(value) => updateActivityField("body", value)}
+        onChange={(value) => {
+          setLength(value.length);
+          updateActivityField("body", value);
+        }}
         label="내용"
       />
 
@@ -77,7 +83,17 @@ const Write = () => {
       />
 
       <Wrrapper>
+        <WhiteBtn
+          onClick={async () => {
+            updateActivityField("postStatus", "임시 저장");
+            const res = await submitActivity(activity);
+            res.success && go("/");
+          }}
+        >
+          임시 저장
+        </WhiteBtn>
         <DefaultButton
+          fullW={true}
           onClick={async () => {
             updateActivityField("postStatus", "게시");
             const res = await submitActivity(activity);
@@ -89,8 +105,8 @@ const Write = () => {
             activity.subject !== "" &&
             activity.semester !== 0 &&
             activity.imageUrl !== ""
-              ? activity.body.length > 200
-              : activity.body.length > 400 && activity.postStatus !== ""
+              ? length > 200
+              : length > 400 && activity.postStatus !== ""
           }
         />
       </Wrrapper>

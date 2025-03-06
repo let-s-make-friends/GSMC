@@ -15,8 +15,8 @@ const Main = () => {
           <div>
             <S.Title>작성</S.Title>
             <S.ButtonWrapper>
-              <WriteButton label="활동 영역 작성" location="/write" />
-              <WriteButton label="독서 영역 작성" location="/writeBook" />
+              <WriteButton label="활동 영역 작성" location="write" />
+              <WriteButton label="독서 영역 작성" location="writeBook" />
             </S.ButtonWrapper>
           </div>
         </S.SmallWrapper>

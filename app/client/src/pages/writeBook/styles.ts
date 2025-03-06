@@ -5,8 +5,9 @@ export const Container = styled.div`
   flex-direction: column;
   gap: 1rem;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   align-items: center;
+  min-height: 100vh;
 `;
 
 export const Title = styled.h1`

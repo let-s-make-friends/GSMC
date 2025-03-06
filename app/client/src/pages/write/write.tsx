@@ -93,6 +93,7 @@ const Write = () => {
           임시 저장
         </WhiteBtn>
         <DefaultButton
+          fullW={true}
           onClick={async () => {
             updateActivityField("postStatus", "게시");
             const res = await submitActivity(activity);

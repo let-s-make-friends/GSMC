@@ -71,6 +71,7 @@ const WriteBook = () => {
           임시 저장
         </WhiteBtn>
         <DefaultButton
+          fullW={true}
           label="작성 완료"
           active={
             book.body !== "" &&

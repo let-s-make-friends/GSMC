@@ -5,7 +5,7 @@ const Header = () => {
   const go = useNavigate();
   return (
     <S.Header>
-      <S.Title onClick={() => go("/main")}>GSM 인증제</S.Title>
+      <S.Title onClick={() => go("/main")}>GSMC</S.Title>
       <S.Nav>
         <li>점수 계산 해보기</li>
         <li>예시 보기</li>

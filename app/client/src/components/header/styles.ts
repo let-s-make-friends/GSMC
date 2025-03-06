@@ -8,6 +8,7 @@ export const Title = styled.h3`
   font-weight: 400;
   line-height: normal;
   text-transform: capitalize;
+  cursor: pointer;
 `;
 
 export const Header = styled.header`
@@ -38,4 +39,5 @@ export const Profile = styled.div`
   background: #fff;
   color: black;
   padding: 0.5rem 1rem;
+  cursor: pointer;
 `;

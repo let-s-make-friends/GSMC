@@ -30,6 +30,7 @@ export const Nav = styled.ul`
   font-weight: 500;
   line-height: normal;
   text-transform: capitalize;
+  cursor: pointer;
 `;
 
 export const Profile = styled.div`

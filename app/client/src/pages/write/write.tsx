@@ -4,6 +4,9 @@ import {
   DefaultButton,
   Dropdown,
   Header,
+} from "../../share";
+import {
+
   ImgButton,
   Textarea,
   WriteInput,
@@ -102,9 +105,9 @@ const Write = () => {
           label="작성 완료"
           active={
             activity.body !== "" &&
-            activity.subject !== "" &&
-            activity.semester !== 0 &&
-            activity.imageUrl !== ""
+              activity.subject !== "" &&
+              activity.semester !== 0 &&
+              activity.imageUrl !== ""
               ? length > 200
               : length > 400 && activity.postStatus !== ""
           }

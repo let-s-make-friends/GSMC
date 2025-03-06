@@ -1,7 +1,7 @@
 import * as S from "./styles";
 
 import { useState, useEffect } from "react";
-import { DefaultButton, Header, Input } from "../../components";
+import { DefaultButton, Header, Input } from "../../share";
 import { getAuthCode, submitSignUp } from "../../apis/auth";
 import { useNavigate } from "react-router-dom";
 

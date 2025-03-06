@@ -18,6 +18,7 @@ export const Button = styled.button<Button>`
   margin-bottom: 0.5rem;
 
   background-color: ${(props) => (props.$isActive ? "#003CFF" : "#012CBA")};
+`;
 
 export const Label = styled.span<{ $isActive: boolean }>`
   text-align: center;

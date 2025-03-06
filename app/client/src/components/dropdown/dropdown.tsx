@@ -1,11 +1,17 @@
 import { useState } from "react";
-import { Container, DropdownButton, OptionsList, Option } from "./styles";
+import {
+  Container,
+  Label,
+  DropdownButton,
+  OptionsList,
+  Option,
+} from "./styles";
 
 interface DropdownProps<T> {
   options: T[];
   value: T;
   setValue: (value: T) => void;
-  label: string;
+  label?: string;
 }
 
 const Dropdown = <T,>({
@@ -27,7 +33,7 @@ const Dropdown = <T,>({
 
   return (
     <Container>
-      <label htmlFor={label}>{label}</label>
+      <Label htmlFor={label}>{label}</Label>
       <DropdownButton onClick={toggleDropdown}>
         {String(value) || "선택해주세요"}
       </DropdownButton>

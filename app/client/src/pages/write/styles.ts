@@ -41,3 +41,11 @@ export const WhiteBtn = styled.button`
   font-weight: 600;
   line-height: 1.375rem; /* 137.5% */
 `;
+
+export const DropdownWrapper = styled.div`
+  display: flex;
+  gap: 0.2rem;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+`;

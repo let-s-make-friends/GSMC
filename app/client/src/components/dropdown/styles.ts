@@ -50,3 +50,7 @@ export const Option = styled.li`
     background-color: #f1f1f1;
   }
 `;
+
+export const Label = styled.label`
+  min-height: 1.5rem;
+`;

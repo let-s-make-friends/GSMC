@@ -1,4 +1,10 @@
-import { Container, Title, WhiteBtn, Wrrapper } from "./styles";
+import {
+  Container,
+  DropdownWrapper,
+  Title,
+  WhiteBtn,
+  Wrrapper,
+} from "./styles";
 import { category2, category, Activity } from "../../types/write";
 import {
   DefaultButton,
@@ -16,7 +22,7 @@ const Write = () => {
   const [activity, setActivity] = useState<Activity>({
     studyCategory: "인문",
     activityCategory: "교내 수상",
-    semester: 0,
+    semester: 1,
     subject: "",
     body: "",
     imageUrl: "",
@@ -39,19 +45,26 @@ const Write = () => {
       <Header />
       <Title>활동 영역 작성하기</Title>
 
-      <Dropdown<category>
-        value={activity.studyCategory}
-        setValue={(value) => updateActivityField("studyCategory", value)}
-        label="카테고리"
-        options={["인문", "전공"]}
-      />
+      <DropdownWrapper>
+        <Dropdown<category>
+          value={activity.studyCategory}
+          setValue={(value) => updateActivityField("studyCategory", value)}
+          label="카테고리"
+          options={["인문", "전공"]}
+        />
 
-      <Dropdown<category2>
-        value={activity.activityCategory}
-        setValue={(value) => updateActivityField("activityCategory", value)}
-        label="카테고리 2"
-        options={["교내 수상", "교외 수상", "교내 참가", "교외 참가", "동아리"]}
-      />
+        <Dropdown<category2>
+          value={activity.activityCategory}
+          setValue={(value) => updateActivityField("activityCategory", value)}
+          options={[
+            "교내 수상",
+            "교외 수상",
+            "교내 참가",
+            "교외 참가",
+            "동아리",
+          ]}
+        />
+      </DropdownWrapper>
 
       <Dropdown<number>
         value={activity.semester}

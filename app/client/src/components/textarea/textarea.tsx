@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { Container, Length, TextareaInput } from "./styles";
 
 interface TextareaProps {
@@ -17,13 +17,6 @@ const Textarea = ({
   placeholder,
 }: TextareaProps) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
-
-  useEffect(() => {
-    if (textareaRef.current) {
-      textareaRef.current.style.height = "auto";
-      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
-    }
-  }, [value]);
 
   return (
     <Container>

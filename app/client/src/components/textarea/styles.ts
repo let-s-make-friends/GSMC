@@ -19,8 +19,7 @@ export const TextareaInput = styled.textarea`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  overflow: hidden;
-  min-height: 2.5rem;
+  min-height: 4.5rem;
 `;
 
 export const Length = styled.span`

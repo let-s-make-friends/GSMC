@@ -1,5 +1,6 @@
 import { API } from "../types/api";
 import { Auth, CertificateCode, SignIn } from "../types/auth";
+import { TokenDto } from "../types/token";
 
 export const submitSignUp = async (
   email: string,
@@ -28,7 +29,7 @@ export const getAuthCode = async (email: string) => {
 };
 
 export const submitLogin = async (email: string, password: string) => {
-  const res = await API<SignIn>("/api/v1/auth/sign-in", {
+  const res = await API<SignIn, TokenDto>("/api/v1/auth/sign-in", {
     method: "POST",
     body: {
       email: email,

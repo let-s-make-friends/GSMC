@@ -1,7 +1,7 @@
 import * as S from "./styles";
 
 import { useState, useEffect } from "react";
-import { DefaultButton, Header, Input } from "../../components";
+import { DefaultButton, Header, Input } from "../../share";
 import { submitLogin } from "../../apis/auth";
 import { useNavigate } from "react-router-dom";
 
@@ -29,37 +29,48 @@ const Login = () => {
   return (
     <S.Container>
       <Header />
-      <S.Wrapper>
-        <S.SecondWrapper>
-          <S.InputWrapper>
-            <S.InputLabel>이메일</S.InputLabel>
-            <Input
-              placeholder="@gsm.hs.kr"
-              type="email"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </S.InputWrapper>
+      <S.LoginWrapper>
+        <S.Wrapper>
+          <S.SecondWrapper>
+            <S.InputWrapper>
+              <S.InputLabel>이메일</S.InputLabel>
+              <Input
+                placeholder="@gsm.hs.kr"
+                type="email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </S.InputWrapper>
 
-          <S.InputWrapper>
-            <S.InputLabel>비밀번호</S.InputLabel>
-            <Input
-              placeholder="영문, 숫자 포함 8글자 이상으로 구성"
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </S.InputWrapper>
+            <S.InputWrapper>
+              <S.InputLabel>비밀번호</S.InputLabel>
+              <Input
+                placeholder="영문, 숫자 포함 8글자 이상으로 구성"
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </S.InputWrapper>
 
-        </S.SecondWrapper>
-        <DefaultButton
-          label="로그인"
-          fullW={true}
-          active={signinActive}
-          onClick={async () => {
-            const res = await submitLogin(email, password);
-            res.success ? go("/main") : setEmail("");
-          }}
-        />
-      </S.Wrapper>
+          </S.SecondWrapper>
+          <DefaultButton
+            label="로그인"
+            fullW={true}
+            active={signinActive}
+            onClick={async () => {
+              const res = await submitLogin(email, password);
+
+              if (res.success && res.data) {
+                const { accessToken, refreshToken } = res?.data?.data?.tokenDto
+
+                localStorage.setItem("accessToken", accessToken);
+                localStorage.setItem("refreshToken", refreshToken);
+
+
+                go("/main");
+              }
+            }}
+          />
+        </S.Wrapper>
+      </S.LoginWrapper>
     </S.Container>
   );
 };

@@ -1,5 +1,6 @@
 import PFA from "../../assets/img/PFA.png";
-import { Header, Rank, WriteButton } from "../../components";
+import { Header } from "../../share";
+import { Rank, WriteButton } from "../../components";
 import * as S from "./styles";
 
 const Main = () => {

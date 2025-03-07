@@ -8,6 +8,17 @@ export const Container = styled.div`
 `;
 
 export const TextareaInput = styled.textarea`
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+  ::-webkit-scrollbar-track-piece {
+    display: none;
+  }
+  ::-webkit-scrollbar {
+    width: 0.25rem;
+    height: 7.75rem;
+    flex-shrink: 0;
+  }
   width: 100%;
   padding: 0.625rem 1rem;
   border: 1px solid #ccc;

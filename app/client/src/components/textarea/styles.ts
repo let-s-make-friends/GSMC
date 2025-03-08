@@ -8,36 +8,26 @@ export const Container = styled.div`
 `;
 
 export const TextareaInput = styled.textarea`
-  ::-webkit-scrollbar-button {
-    display: none;
-  }
-  ::-webkit-scrollbar-track-piece {
-    display: none;
-  }
-  ::-webkit-scrollbar {
-    width: 0.25rem;
-    height: 7.75rem;
-    flex-shrink: 0;
-  }
+  resize: none;
+  overflow-y: auto;
   width: 100%;
   padding: 0.625rem 1rem;
   border: 1px solid #ccc;
   border-radius: 0.625rem;
-  resize: none;
   outline: none;
   font-size: 1rem;
   font-family: Pretendard;
-  font-style: normal;
   font-weight: 400;
-  line-height: normal;
-  min-height: 4.5rem;
+  min-height: 8rem;
+
+  scrollbar-width: thin;
+  scrollbar-color: white;
 `;
 
 export const Length = styled.span`
   color: #111;
   font-family: Pretendard;
   font-size: 1rem;
-  font-style: normal;
   font-weight: 600;
   line-height: normal;
 `;

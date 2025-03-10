@@ -6,17 +6,8 @@ import {
   Wrrapper,
 } from "./styles";
 import { category2, category, Activity } from "../../types/write";
-import {
-  DefaultButton,
-  Dropdown,
-  Header,
-} from "../../share";
-import {
-
-  ImgButton,
-  Textarea,
-  WriteInput,
-} from "../../components";
+import { DefaultButton, Dropdown, Header } from "../../share";
+import { ImgButton, Textarea, WriteInput } from "../../components";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { submitActivity } from "../../apis/write";
@@ -118,9 +109,9 @@ const Write = () => {
           label="작성 완료"
           active={
             activity.body !== "" &&
-              activity.subject !== "" &&
-              activity.semester !== 0 &&
-              activity.imageUrl !== ""
+            activity.subject !== "" &&
+            activity.semester !== 0 &&
+            activity.imageUrl !== ""
               ? length > 200
               : length > 400 && activity.postStatus !== ""
           }

@@ -5,6 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   width: 30%;
   gap: 0.5rem;
+  position: relative;
 `;
 
 export const DropdownButton = styled.button`
@@ -30,18 +31,19 @@ export const DropdownButton = styled.button`
 
 export const OptionsList = styled.ul`
   position: absolute;
-  width: 30%;
+  width: 100%;
   border-radius: 0.625rem;
-  margin-top: 0.5rem;
   background-color: white;
   border: 1px solid #ccc;
   list-style: none;
   max-height: 200px;
   overflow-y: auto;
   z-index: 10;
+  top: 4rem;
 `;
 
 export const Option = styled.li`
+  width: 100%;
   color: #111;
   padding: 0.5rem 1rem;
   cursor: pointer;
@@ -49,8 +51,4 @@ export const Option = styled.li`
   &:hover {
     background-color: #f1f1f1;
   }
-`;
-
-export const Label = styled.label`
-  min-height: 1.5rem;
 `;

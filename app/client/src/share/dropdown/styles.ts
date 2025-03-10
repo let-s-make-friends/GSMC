@@ -10,7 +10,6 @@ export const Container = styled.div`
 
 export const DropdownButton = styled.button`
   width: 100%;
-  height: 2.5rem;
   border-radius: 0.625rem;
   padding: 0.625rem 1rem;
   text-align: left;
@@ -27,6 +26,13 @@ export const DropdownButton = styled.button`
     outline: none;
     border-color: #999;
   }
+
+  color: #111;
+  font-family: Pretendard;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 `;
 
 export const OptionsList = styled.ul`

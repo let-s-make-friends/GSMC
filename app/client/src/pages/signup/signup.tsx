@@ -1,7 +1,7 @@
 import * as S from "./styles";
 
 import { useState, useEffect } from "react";
-import { DefaultButton, Header, Input } from "../../share";
+import { DefaultButton, Input } from "../../share";
 import { getAuthCode, submitSignUp } from "../../apis/auth";
 import { useNavigate } from "react-router-dom";
 
@@ -34,9 +34,10 @@ const Signup = () => {
   const go = useNavigate();
   return (
     <S.Container>
-      <Header />
+      <S.TitleWrapper>
+        <S.Title>GSMC</S.Title>
+      </S.TitleWrapper>
       <S.LoginWrapper>
-
         <S.Wrapper>
           <S.SecondWrapper>
             <S.InputWrapper>

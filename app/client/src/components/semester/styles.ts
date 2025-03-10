@@ -8,10 +8,13 @@ export const Container = styled.div`
   gap: 0.5rem;
 `;
 
-export const Button = styled.button`
+interface ButtonProps {
+  selected?: boolean;
+}
+
+export const Button = styled.button<ButtonProps>`
   width: 100%;
   border: none;
-  color: #000;
   text-align: center;
   font-family: Pretendard;
   font-size: 1rem;
@@ -20,14 +23,18 @@ export const Button = styled.button`
   line-height: normal;
   text-transform: capitalize;
   border-radius: 0.75rem;
-  background: #fff;
+  background: ${({ selected }) => (selected ? "#003CFF" : "#fff")};
+  color: ${({ selected }) => (selected ? "#fff" : "#000")};
   display: flex;
   padding: 0.75rem 2rem;
   align-items: center;
-  gap: 0.625rem;
-  display: flex;
   justify-content: center;
   gap: 0.5rem;
+  cursor: pointer;
+
+  &:hover {
+    background: ${({ selected }) => (selected ? "#002ECC" : "#f1f1f1")};
+  }
 `;
 
 export const ButtonWrapper = styled.div`

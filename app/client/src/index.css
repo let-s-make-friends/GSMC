@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+  src: url("./assets/fonts/Pretendard.woff2") format("woff2-variations");
+}
+
+@font-face {
+  font-family: "LOTTERIA CHAB";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("./assets/fonts/LOTTERIA CHAB.ttf") format("truetype");
+}

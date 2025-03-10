@@ -1,5 +1,26 @@
 import styled from "styled-components";
 
+export const TitleWrapper = styled.div`
+  background-color: inherit;
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  width: 100%;
+  z-index: 100;
+  top: 0;
+`;
+
+export const Title = styled.h3`
+  color: #fff;
+  font-family: "LOTTERIA CHAB", sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+  cursor: pointer;
+`;
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;

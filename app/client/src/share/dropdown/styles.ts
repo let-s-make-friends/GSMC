@@ -17,6 +17,7 @@ export const DropdownButton = styled.button`
   border: 1px solid #ccc;
   cursor: pointer;
   appearance: none;
+  position: relative;
 
   &:hover {
     background-color: #f1f1f1;
@@ -33,6 +34,15 @@ export const DropdownButton = styled.button`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+
+  &::after {
+    content: "▼";
+    font-size: 0.75rem;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 `;
 
 export const OptionsList = styled.ul`

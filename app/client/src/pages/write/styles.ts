@@ -46,6 +46,6 @@ export const DropdownWrapper = styled.div`
   display: flex;
   gap: 0.2rem;
   width: 50%;
-  align-items: center;
+  align-items: end;
   justify-content: center;
 `;

@@ -44,8 +44,8 @@ export const WhiteBtn = styled.button`
 
 export const DropdownWrapper = styled.div`
   display: flex;
-  gap: 0.5rem;
-  width: 50%;
+  gap: 1rem;
+  width: 30%;
   align-items: end;
   justify-content: center;
 `;

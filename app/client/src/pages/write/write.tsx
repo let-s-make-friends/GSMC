@@ -11,6 +11,7 @@ import { ImgButton, Textarea, WriteInput } from "../../components";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { submitActivity } from "../../apis/write";
+import Semester from "../../components/semester/semester";
 
 const Write = () => {
   const [activity, setActivity] = useState<Activity>({
@@ -60,11 +61,9 @@ const Write = () => {
         />
       </DropdownWrapper>
 
-      <Dropdown<number>
-        value={activity.semester}
+      <Semester
         setValue={(value) => updateActivityField("semester", value)}
-        label="학기"
-        options={[1, 2]}
+        value={activity.semester}
       />
 
       <WriteInput
